@@ -70,8 +70,8 @@ inspect(rules3)
 #Find out what events were influenced by a given event
 subset1 = subset(rules2, appearance = list (default="lhs",rhs="whole milk"))
 inspect(subset1)
-subset1 = subset(rules2, subset=rhs %in% 'bottled beer' )
-inspect(subset1)
+subset1a = subset(rules2, subset=rhs %in% 'bottled beer' )
+inspect(subset1a)
 inspect(rules2)
 subset2 = subset(rules2, subset=lhs %ain% c('baking powder','soda') )
 inspect(subset2)
@@ -81,3 +81,7 @@ subset2b = subset(rules2, subset=lhs %ain% c('baking powder','yogurt') )
 inspect(subset2b)
 subset3 = subset(rules2, subset=lhs %in% 'soda' & rhs %in% 'bottled beer')
 inspect(subset3)
+
+#visualizing the rules -----
+plot(subset1[1:10])
+plot(subset1[1:10], measure=c("support","lift"), shading="confidence")
